@@ -23,6 +23,7 @@ RUN jenkins-plugin-cli --plugin-file /usr/share/jenkins/ref/plugins.txt
 
 # JCasC
 COPY casc /usr/share/jenkins/ref/casc
+COPY pipeline.groovy /usr/share/jenkins/ref/casc/jobs/ci-cd-app.groovy
 
 USER jenkins
 
