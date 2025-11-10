@@ -11,11 +11,11 @@ RUN apt-get update \
   && echo \
     "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian \
     $(. /etc/os-release && echo $VERSION_CODENAME) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null \
-  && curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg \
-  && echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | tee /etc/apt/sources.list.d/kubernetes.list \
   && apt-get update \
-  && apt-get install -y --no-install-recommends docker-ce-cli kubectl \
-  && rm -rf /var/lib/apt/lists/*
+  && apt-get install -y --no-install-recommends docker-ce-cli \
+  && rm -rf /var/lib/apt/lists/* \
+  && curl -fsSLo /usr/local/bin/kubectl "https://dl.k8s.io/release/$(curl -fsSL https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" \
+  && chmod +x /usr/local/bin/kubectl
 
 # Preinstall Jenkins plugins
 COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
@@ -27,4 +27,3 @@ COPY casc /usr/share/jenkins/ref/casc
 USER jenkins
 
 ENV CASC_JENKINS_CONFIG=/var/jenkins_home/casc/jenkins.yaml
-
