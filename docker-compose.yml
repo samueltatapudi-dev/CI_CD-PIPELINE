@@ -9,7 +9,7 @@ services:
     user: root
     ports:
       - "8081:8080"
-      - "50000:50000"
+      - "50001:50000"
     environment:
       - JAVA_OPTS=-Djenkins.install.runSetupWizard=false
       - CASC_JENKINS_CONFIG=/var/jenkins_home/casc/jenkins.yaml
