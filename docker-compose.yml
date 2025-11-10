@@ -25,6 +25,8 @@ services:
       # Mount local kube and minikube configs for kubectl access
       - ${USERPROFILE}/.kube:/root/.kube
       - ${USERPROFILE}/.minikube:/root/.minikube
+      # Mount Kubernetes manifests for deployments
+      - ./k8s:/opt/cicd/k8s:ro
     depends_on:
       - sonarqube
 
@@ -62,4 +64,3 @@ volumes:
   sonarqube_extensions:
   sonarqube_logs:
   sonardb_data:
-

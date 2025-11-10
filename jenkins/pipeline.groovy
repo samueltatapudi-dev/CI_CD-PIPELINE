@@ -80,9 +80,9 @@ pipeline {
         sh '''
           set -euxo pipefail
           kubectl get ns ${KUBE_NAMESPACE} >/dev/null 2>&1 || kubectl create ns ${KUBE_NAMESPACE}
-          kubectl -n ${KUBE_NAMESPACE} apply -f k8s/service.yaml || true
-          kubectl -n ${KUBE_NAMESPACE} apply -f k8s/deployment.yaml || true
-          kubectl -n ${KUBE_NAMESPACE} apply -f k8s/deployment-canary.yaml || true
+          kubectl -n ${KUBE_NAMESPACE} apply -f /opt/cicd/k8s/service.yaml || true
+          kubectl -n ${KUBE_NAMESPACE} apply -f /opt/cicd/k8s/deployment.yaml || true
+          kubectl -n ${KUBE_NAMESPACE} apply -f /opt/cicd/k8s/deployment-canary.yaml || true
           kubectl -n ${KUBE_NAMESPACE} set image deployment/app-canary app-container=${IMAGE_REPO}:${APP_VERSION}
           kubectl -n ${KUBE_NAMESPACE} scale deployment/app-canary --replicas=1
           kubectl -n ${KUBE_NAMESPACE} rollout status deployment/app-canary --timeout=180s
@@ -120,4 +120,3 @@ pipeline {
     }
   }
 }
-
