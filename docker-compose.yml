@@ -31,7 +31,7 @@ services:
       # Mount Kubernetes manifests for deployments
       - ./k8s:/opt/cicd/k8s:ro
     depends_on:
-      - sonarqube
+      - sonarqube-ci
 
   sonarqube-ci:
     image: sonarqube:10.3-community
