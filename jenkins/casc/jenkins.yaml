@@ -21,9 +21,9 @@ unclassified:
           - key: KUBE_NAMESPACE
             value: "${KUBE_NAMESPACE}"
           - key: APP_REPO_URL
-            value: "https://github.com/samueltatapudi-dev/CI_CD_APP_VERSION"
+            value: "${APP_REPO_URL}"
           - key: APP_REPO_BRANCH
-            value: "main"
+            value: "${APP_REPO_BRANCH}"
   sonar:
     installations:
       - name: "sonarqube"

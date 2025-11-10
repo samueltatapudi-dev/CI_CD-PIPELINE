@@ -15,6 +15,8 @@ services:
       - CASC_JENKINS_CONFIG=/var/jenkins_home/casc/jenkins.yaml
       - JENKINS_ADMIN_ID=${JENKINS_ADMIN_ID:-admin}
       - JENKINS_ADMIN_PASSWORD=${JENKINS_ADMIN_PASSWORD:-admin123}
+      - APP_REPO_URL=${APP_REPO_URL:-https://github.com/samueltatapudi-dev/CI_CD_APP_VERSION}
+      - APP_REPO_BRANCH=${APP_REPO_BRANCH:-main}
       - DOCKERHUB_USERNAME=${DOCKERHUB_USERNAME:-changeme}
       - DOCKERHUB_TOKEN=${DOCKERHUB_TOKEN:-changeme}
       - SONARQUBE_TOKEN=${SONARQUBE_TOKEN:-changeme}
