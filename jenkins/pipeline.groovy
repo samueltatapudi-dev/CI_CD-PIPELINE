@@ -53,7 +53,7 @@ pipeline {
               echo "Skipping SonarQube scan (no valid token)"
             else
               docker run --rm \
-                -e SONAR_HOST_URL=http://sonarqube:9000 \
+                -e SONAR_HOST_URL=http://sonarqube-ci:9000 \
                 -e SONAR_LOGIN=$SONAR_LOGIN \
                 -v "$PWD":/usr/src \
                 sonarsource/sonar-scanner-cli \

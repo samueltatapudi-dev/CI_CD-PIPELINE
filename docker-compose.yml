@@ -33,9 +33,9 @@ services:
     depends_on:
       - sonarqube
 
-  sonarqube:
+  sonarqube-ci:
     image: sonarqube:10.3-community
-    container_name: sonarqube
+    container_name: sonarqube-ci
     depends_on:
       - sonardb
     environment:

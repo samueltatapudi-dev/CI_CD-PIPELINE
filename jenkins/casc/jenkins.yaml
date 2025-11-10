@@ -27,7 +27,7 @@ unclassified:
   sonar:
     installations:
       - name: "sonarqube"
-        serverUrl: "http://sonarqube:9000"
+        serverUrl: "http://sonarqube-ci:9000"
         credentialsId: "sonar-token"
 
 credentials:
